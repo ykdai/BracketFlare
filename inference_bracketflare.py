@@ -29,7 +29,6 @@ def inference(input_path, output_path, model_path):
     os.makedirs(os.path.join(output_path, "input"), exist_ok=True)
     os.makedirs(os.path.join(output_path, "deflare"), exist_ok=True)
     os.makedirs(os.path.join(output_path, "flare"), exist_ok=True)
-    os.makedirs(os.path.join(output_path, "blend"), exist_ok=True)
 
     for cur_input_name in tqdm((input_name_list)):
         torch.cuda.empty_cache()
@@ -38,7 +37,6 @@ def inference(input_path, output_path, model_path):
         cur_input_save_path = os.path.join(output_path, "input", cur_input_name)
         cur_deflare_path = os.path.join(output_path, "deflare", cur_input_name)
         cur_flare_path = os.path.join(output_path, "flare", cur_input_name)
-        cur_blend_path = os.path.join(output_path, "blend", cur_input_name)
 
         cur_input_img = Image.open(cur_input_path).convert("RGB")
         cur_input_img = resize(to_tensor(cur_input_img))
@@ -54,7 +52,6 @@ def inference(input_path, output_path, model_path):
             torchvision.utils.save_image(cur_input_img, cur_input_save_path)
             torchvision.utils.save_image(flare_img_predicted, cur_flare_path)
             torchvision.utils.save_image(deflare_img, cur_deflare_path)
-            torchvision.utils.save_image(merge_img_predicted, cur_blend_path)
 
 
 if __name__ == "__main__":
