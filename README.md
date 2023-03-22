@@ -1,5 +1,5 @@
 ## Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior (CVPR2023)
-[Paper: coming soon]() | [Project Page](https://ykdai.github.io/projects/BracketFlare) | [Video](https://www.youtube.com/watch?v=FM8kAM13zUA)
+Paper: coming soon | [Project Page](https://ykdai.github.io/projects/BracketFlare) | [Video](https://www.youtube.com/watch?v=FM8kAM13zUA)
 
 [Yuekun Dai](https://ykdai.github.io/), [Yihang Luo](https://github.com/Luo-Yihang), [Shangchen Zhou](https://shangchenzhou.com/), [Chongyi Li](https://li-chongyi.github.io/),  [Chen Change Loy](https://www.mmlab-ntu.com/person/ccloy/)
 
@@ -41,7 +41,7 @@ The inference code based on MPRNet is released Now. You can download the pretrai
 To generate the flare-free images from the `test/lq` folder,  you can run the `test.py` by using:
 
 ```
-python test.py --i test/lq/ --o results/ --model_path expirements/net_g_last.pth
+python test.py --i test/lq/ --o result/ --model_path expirements/net_g_last.pth
 ```
 
 ### Evaluation Code
@@ -54,7 +54,7 @@ python evaluate.py --input result/deflare/ --gt test/gt --mask test/mask
 
 ### License
 
-This project is licensed under <a rel="license" href="https://github.com/ykdai/Flare7K/blob/main/LICENSE">S-Lab License 1.0</a>. Redistribution and use of the dataset and code for non-commercial purposes should follow this license.
+This project is licensed under <a rel="license" href="https://github.com/ykdai/BracketFlare/blob/main/LICENSE">S-Lab License 1.0</a>. Redistribution and use of the dataset and code for non-commercial purposes should follow this license. This project is built on [BasicSR](https://github.com/XPixelGroup/BasicSR), the detailed tutorial on training commands and config settings can be found [here](https://github.com/XPixelGroup/BasicSR/blob/master/docs/introduction.md). 
 
 ### Citation
 
@@ -71,4 +71,4 @@ If you find this work useful, please cite:
 
 ### Contact
 
-If you have any question, please feel free to reach me out at `ydai005@e.ntu.edu.sg`.
+If you have any question (such as asking for the 4K version of our BracketFlare Dataset), please feel free to reach me out at `ydai005@e.ntu.edu.sg`.
