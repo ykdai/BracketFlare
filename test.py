@@ -17,7 +17,8 @@ def inference(input_path, output_path, model_path):
         RandomVerticalFlip(1.0)
     ])
     to_tensor = transforms.ToTensor()
-    resize = transforms.Resize((512,512))
+    resize = transforms.Resize(512)
+    crop =transforms.CenterCrop(512)
     gamma = torch.Tensor([2.2])
 
     model = MPRNet(img_ch=6, output_ch=6).cuda()
@@ -39,7 +40,7 @@ def inference(input_path, output_path, model_path):
         cur_flare_path = os.path.join(output_path, "flare", cur_input_name)
 
         cur_input_img = Image.open(cur_input_path).convert("RGB")
-        cur_input_img = resize(to_tensor(cur_input_img))
+        cur_input_img = crop(resize(to_tensor(cur_input_img)))
         cur_input_img = cur_input_img.cuda().unsqueeze(0)
 
         with torch.no_grad():
