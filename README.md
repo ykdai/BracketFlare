@@ -1,5 +1,5 @@
 ## Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior (CVPR2023)
-Paper: coming soon | [Project Page](https://ykdai.github.io/projects/BracketFlare) | [Video](https://www.youtube.com/watch?v=FM8kAM13zUA)
+[Paper](https://arxiv.org/abs/2303.15046) | [Project Page](https://ykdai.github.io/projects/BracketFlare) | [Video](https://www.youtube.com/watch?v=FM8kAM13zUA)
 
 [Yuekun Dai](https://ykdai.github.io/), [Yihang Luo](https://github.com/Luo-Yihang), [Shangchen Zhou](https://shangchenzhou.com/), [Chongyi Li](https://li-chongyi.github.io/),  [Chen Change Loy](https://www.mmlab-ntu.com/person/ccloy/)
 
@@ -9,7 +9,6 @@ S-Lab, Nanyang Technological University
 
 - **2022.03.22**: Our BracketFlare dataset and pretrained model is uploaded to the Google Drive and Baidu Netdisk now.
 - **2022.03.21**: Our paper is selected as a **highlight (top2.5%)** at CVPR 2023.
-- **2022.03.17**: This repo is created.
 - **2023.02.28**: Our paper *Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior* is accepted by the CVPR2023 with **3 top ratings**. 🤗
 
 ### Data Download
