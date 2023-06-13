@@ -40,7 +40,7 @@ The inference code based on MPRNet is released Now. You can download the pretrai
 To generate the flare-free images from the `test/lq` folder,  you can run the `test.py` by using:
 
 ```
-python test.py --i test/lq/ --o result/ --model_path expirements/net_g_last.pth
+python test.py --i test/lq/ --o result/ --model_path experiments/net_g_last.pth
 ```
 
 ### Evaluation Code
@@ -50,6 +50,26 @@ To calculate different metrics with our pretrained model, you can run the `evalu
 ```
 python evaluate.py --input result/deflare/ --gt test/gt --mask test/mask
 ```
+
+### Training model
+
+**Training with single GPU**
+
+To train a model, you need to download and unzip our BracketFlare dataset under `data` folder. You may edit the `options/uformer_flare7k_option.yml` and run the following code. You can also add `--debug` command to start the debug mode:
+
+```
+python basicsr/train.py -opt options/bracketflare_mprnet_option.yml
+```
+
+**Training with multiple GPU**
+
+You can run the following command for the multiple GPU tranining:
+
+```
+CUDA_VISIBLE_DEVICES=0,1 bash scripts/dist_train.sh 2 options/bracketflare_mprnet_option.yml
+```
+
+
 
 ### License
 
