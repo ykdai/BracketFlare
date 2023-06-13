@@ -1,3 +1,21 @@
+Metadata-Version: 2.1
+Name: basicsr
+Version: 1.4.2
+Summary: Open Source Image and Video Super-Resolution Toolbox
+Home-page: https://github.com/xinntao/BasicSR
+Author: Xintao Wang
+Author-email: xintao.wang@outlook.com
+License: Apache License 2.0
+Keywords: computer vision,restoration,super resolution
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 ## Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior (CVPR2023)
 [Paper](https://arxiv.org/abs/2303.15046) | [Project Page](https://ykdai.github.io/projects/BracketFlare) | [Video](https://www.youtube.com/watch?v=FM8kAM13zUA)
 
@@ -10,27 +28,6 @@ S-Lab, Nanyang Technological University
 - **2022.03.22**: Our BracketFlare dataset and pretrained model is uploaded to the Google Drive and Baidu Netdisk now.
 - **2022.03.21**: Our paper is selected as a **highlight (top2.5%)** at CVPR 2023.
 - **2023.02.28**: Our paper *Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior* is accepted by the CVPR2023 with **3 top ratings**. 🤗
-### Installation
-
-1. Clone the repo
-
-    ```bash
-    git clone https://github.com/ykdai/BracketFlare
-    ```
-
-1. Install dependent packages
-
-    ```bash
-    cd BracketFlare
-    pip install -r requirements.txt
-    ```
-
-1. Install BracketFlare<br>
-    Please run the following commands in the **BracketFlare root path** to install BracketFlare:<br>
-
-    ```bash
-    python setup.py develop
-    ```
 
 ### Data Download
 
@@ -76,7 +73,7 @@ python evaluate.py --input result/deflare/ --gt test/gt --mask test/mask
 
 **Training with single GPU**
 
-To train a model, you need to download and unzip our BracketFlare dataset under `data` folder. You may edit the `options/bracketflare_mprnet_option.yml` and run the following code. You can also add `--debug` command to start the debug mode:
+To train a model, you need to download and unzip our BracketFlare dataset under `data` folder. You may edit the `options/uformer_flare7k_option.yml` and run the following code. You can also add `--debug` command to start the debug mode:
 
 ```
 python basicsr/train.py -opt options/bracketflare_mprnet_option.yml
