@@ -1,0 +1,110 @@
+# general settings
+name: Bracketflare_MPRNet
+model_type: DeRefModel
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: bracket_flare
+    type: BracketFlare_Loader
+    background_path: data/BracketFlare/gt
+    flare_path: data/BracketFlare/flare
+    preprocess_size: 800
+    img_size: 512
+    translate: 0.02
+    mask_type: flare
+    
+    # data loader
+    ema_decay: 0.9
+    use_shuffle: true
+    num_worker_per_gpu: 4
+    batch_size_per_gpu: 1
+    dataset_enlarge_ratio: 10
+    prefetch_mode: ~
+
+  val:
+    name: flare_test
+    type: ImageMask_Pair_Loader
+    dataroot_gt: data/BracketFlare/test/gt
+    dataroot_lq: data/BracketFlare/test/lq
+    dataroot_mask: data/BracketFlare/test/mask
+    gt_size: 512
+
+# network structures
+network_g:
+  type: MPRNet
+  img_ch: 6
+  output_ch: 6
+  multi_stage: 3
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# training settings
+train:
+  optim_g:
+    type: Adam
+    lr: !!float 1e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [200000]
+    gamma: 0.5
+
+  total_iter: 1200000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  l1_opt:
+    type: L_Abs_pure
+    loss_weight: 0.5
+
+  perceptual:
+    type: L_percepture
+    loss_weight: 0.1
+
+  l1_mask:
+    type: L_Abs_weighted
+    loss_weight: 20
+
+# validation settings
+val:
+  val_freq: !!float 5e3
+  save_img: true
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim: # metric name, can be arbitrary
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+    masked_mae:
+      type: calculate_maskmae
+      crop_border: 0
+      test_y_channel: false
+      better: lower
+
+# logging settings
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 5e3
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
