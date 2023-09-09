@@ -7,8 +7,8 @@ S-Lab, Nanyang Technological University
 
 ### News
 - **2023.06.13**: Our training code is released.
-- **2022.03.22**: Our BracketFlare dataset and pretrained model is uploaded to the Google Drive and Baidu Netdisk now.
-- **2022.03.21**: Our paper is selected as a **highlight (top2.5%)** at CVPR 2023.
+- **2023.03.22**: Our BracketFlare dataset and pretrained model is uploaded to the Google Drive and Baidu Netdisk now.
+- **2023.03.21**: Our paper is selected as a **highlight (top2.5%)** at CVPR 2023.
 - **2023.02.28**: Our paper *Nighttime Smartphone Reflective Flare Removal using Optical Center Symmetry Prior* is accepted by the CVPR2023 with **3 top ratings**. 🤗
 ### Installation
 
