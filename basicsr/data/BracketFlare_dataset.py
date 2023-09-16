@@ -258,7 +258,7 @@ class Image_Pair_Loader(data.Dataset):
         return {'lq': img_lq, 'gt': img_gt}
 
     def __len__(self):
-        return len(self.paths)
+        return len(self.paths['lq'])
 
 
 def glod_from_folder(folder_list, index_list):
@@ -294,4 +294,4 @@ class ImageMask_Pair_Loader(Image_Pair_Loader):
         return {'lq': img_lq, 'gt': img_gt,'mask':img_mask}
 
     def __len__(self):
-        return len(self.paths)
+        return len(self.paths['lq'])
