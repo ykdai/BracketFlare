@@ -63,6 +63,11 @@ To generate the flare-free images from the `test/lq` folder,  you can run the `t
 ```
 python test.py --i test/lq/ --o result/ --model_path experiments/net_g_last.pth
 ```
+If you have a large image and don't want to change the size of it, you can also try `test_large.py` by using:
+```
+python test_large.py --i test/lq/ --o result/ --model_path experiments/net_g_last.pth --inpaint
+```
+Module `--inpaint` is mainly for tiny reflective flares, it will achieve smoother results for large size image. 
 
 ### Evaluation Code
 
